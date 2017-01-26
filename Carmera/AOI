@@ -1,0 +1,21 @@
+Search AOI: Search an Area of Interest for Image metadata. Useful first step before creating an AOI.
+GET https://api.carmera.com/v1/aois/search/?aoi={polygon}
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+
+Create AOI: Create an Area of Interest so you can easily and repeatedly get it or subscribe to changes in it.
+POST https://api.carmera.com/v1/aois/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+Content-Type: application/vnd.geo+json
+
+Get AOI: Retrieve an Area of Interests Image metadata that you created by ID.
+GET https://api.carmera.com/v1/aois/{aoi_id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+
+Update AOI: Update an Area of Interests that you created by ID.
+PUT https://api.carmera.com/v1/aois/{aoi_id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+Content-Type: application/vnd.geo+json
+
+Delete AOI: Delete an Area of Interests that you created by ID.
+DELETE https://api.carmera.com/v1/aois/{aoi-id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}

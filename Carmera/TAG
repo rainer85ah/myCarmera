@@ -1,0 +1,18 @@
+Get Tag:
+GET https://api.carmera.com/v1/images/tags/{tag-id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+
+Create Tag:
+POST https://api.carmera.com/v1/images/tags/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+Content-Type: application/json
+
+Update Tag:
+PUT https://api.carmera.com/v1/images/tags/{tag-id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+Content-Type: application/json
+
+
+Delete Tag: Delete an Tag that you created by ID.
+DELETE https://api.carmera.com/v1/images/tags/{tag-id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}

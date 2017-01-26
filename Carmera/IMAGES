@@ -1,0 +1,16 @@
+Get Image: Retrieve Image metadata by ID.
+GET https://api.carmera.com/v1/images/{image_id}/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+
+Search for Images: There are two ways to search for images using the Image service. By coordinates or address,
+both require you to provide a radius in meters.
+GET https://api.carmera.com/v1/images/search/?point={lon},{lat}&radius={radius}
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+
+Request by Address:
+GET https://api.carmera.com/v1/images/search/?address={address}&radius={radius}
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
+
+Download Image: Save an image by its ID.
+GET https://api.carmera.com/v1/images/{image_id}/download/
+Authorization: api-key {00bc11acbd9c2690eb453a51b335bbcdd8652ba9}
