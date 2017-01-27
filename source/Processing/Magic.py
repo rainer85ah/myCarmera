@@ -149,8 +149,8 @@ class Proccesing(object):
 
 if __name__ == '__main__':
 
-    os.chdir('/home/rainer85ah/Desktop/Carmera/data/')
-    thumbnail_url = '/home/rainer85ah/Desktop/Carmera/thumbnail/'
+    os.chdir('/home/rainer85ah/Desktop/source/data/')
+    thumbnail_url = '/home/rainer85ah/Desktop/source/thumbnail/'
     processing = Proccesing()
     # ext = [".jpg", ".png"]
     # images_list = [os.path.join(path,f) for f in os.listdir(path) if f.endswith(ext)]

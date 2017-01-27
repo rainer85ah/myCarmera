@@ -1,12 +1,12 @@
 from carmera import Carmera
 import requests
-from Carmera.Image import Image
+from source.Image import Image
 
 # -*- coding: utf-8 -*-
 __author__ = 'Rainer Arencibia'
 
 """Parameter or settings from the app"""
-DISK = '/home/rainer85ah/Desktop/Carmera/data/'
+DISK = '/home/rainer85ah/Desktop/source/data/'
 AOI = [[[-73.987084387429, 40.7330731785852], [-73.9806062564698, 40.7303859498055],
         [-73.9862746210592, 40.7225563969032], [-73.9922222154312, 40.7243339978445]]]
 AOI_NAME = "East Village"

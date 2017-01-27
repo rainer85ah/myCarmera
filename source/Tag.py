@@ -45,7 +45,7 @@ SOFTWARE.
 class Tag(object):
     """
     Tags are features detected within an Image, or whole Image descriptions. Both can be associated to properties.
-    On this class we implements the Object Tag from Carmera to call the API methods + adding the error message, and
+    On this class we implements the Object Tag from source to call the API methods + adding the error message, and
     others objects useful for a better and safety use of the API.
     """
     def __init__(self, key):

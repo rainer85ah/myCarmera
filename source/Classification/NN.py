@@ -73,8 +73,8 @@ class NN:
             model.load_weights(weights_path)
 
         SVG(model_to_dot(model).create(prog='dot', format='svg'))
-        plot(model, to_file='/home/rainer85ah/Desktop/Carmera/model.jpg', show_shapes=False, show_layer_names=True)
-        print("Check.. '/home/rainer85ah/Desktop/Carmera/model.jpg' file.")
+        plot(model, to_file='/home/rainer85ah/Desktop/source/model.jpg', show_shapes=False, show_layer_names=True)
+        print("Check.. '/home/rainer85ah/Desktop/source/model.jpg' file.")
 
         """
         In my own experience, Adagrad / Adadelta are "safer" because they don't depend so strongly on setting of

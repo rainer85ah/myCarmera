@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Carmera.Image import Image
+from source.Image import Image
 
 """
 MIT License

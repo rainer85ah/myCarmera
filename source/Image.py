@@ -1,16 +1,37 @@
 from carmera import Carmera
+from carmera.core import errors
 # -*- coding: utf-8 -*-
 __author__ = 'Rainer Arencibia'
+
+"""
+MIT License
+
+Copyright (c) 2016 Rainer Arencibia
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
 
 
 class Image(object):
     """
-    On this class we implements the Object Image from Carmera to call the API methods + adding the error message, and
+    On this class we implements the Object Image from source to call the API methods + adding the error message, and
     others objects useful for a better and safety use of the API.
     # We add some methods for basic pre-processing images.
     Image queries default sort by distance Ascending.
     """
-
     def __init__(self, key):
         cm = Carmera(api_key=str(key))
         self.img = cm.Image()       # Image Service
@@ -88,7 +109,7 @@ class Image(object):
             }
             feature_collection = self.img.search(options).json()
             for image in feature_collection['features']:
-                self.img_id_set.add(image['properties']['image_id'])
+                self.img_id_set.add(image['properties']['id'])
             return self.img_id_set
         except Exception as e:
             print(e.code)
@@ -131,7 +152,6 @@ class Image(object):
         except Exception as e:
             print(e.code)
             print(e.error)
-
         return None
 
     @staticmethod
@@ -169,7 +189,7 @@ class Image(object):
         Image.search_images_address(self, address, radius=radius)
         if len(self.img_id_set) == 0:
             print("There is nothing to save. Search for some images first.")
-            return -1
+            return None
         else:
             try:
                 for image in self.img_id_set:
@@ -194,7 +214,7 @@ class Image(object):
         Image.search_images_address(self, points, radius=radius)
         if len(self.img_id_set) == 0:
             print("There is nothing to save. Search for some images first.")
-            return -1
+            return None
         else:
             try:
                 for id in self.img_id_set:
@@ -212,20 +232,18 @@ if __name__ == '__main__':
     AOI = [[[-73.987084387429, 40.7330731785852], [-73.9806062564698, 40.7303859498055],
             [-73.9862746210592, 40.7225563969032], [-73.9922222154312, 40.7243339978445]]]
     AOI_NAME = "East Village"
-    DISK = '/home/rainer85ah/Desktop/Carmera/data/'
+    DISK = '/home/rainer85ah/Desktop/source/data/'
+    image_object = Image('00bc11acbd9c2690eb453a51b335bbcdd8652ba9')
 
-    image = Image('00bc11acbd9c2690eb453a51b335bbcdd8652ba9')
-    print('Test: ', image.__repr__())
+    id_set = image_object.search_images_address(image_object, address='850 Broadway, New York, NY 10003', radius=2000)
+    if id_set is None:
+        print("Search by address Failed")
+    else:
+        print("Search by address OK")
 
-    id_set = image.search_images_coordinates(image, points=AOI, radius=1000)
-    print('Test: ', id_set.__repr__())
-
-    lista = list(id_set)
-    for id in lista:
-        print(id)
-
-    res = image.download_images(DISK)
-    if res == -1:
+    result = image_object.download_images(image_object, DISK)
+    if result is None:
         print("Download Failed")
-
+    else:
+        print("Download OK")
 
