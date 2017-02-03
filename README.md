@@ -1,2 +1,2 @@
 # myCarmera
-Implementing some Carmera Applications
+Implementing Carmera Applications
